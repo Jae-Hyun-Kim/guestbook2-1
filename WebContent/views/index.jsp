@@ -37,7 +37,16 @@
 			<td>[<%=countTotal-index++ %>]</td>
 			<td><%=vo.getName() %></td>
 			<td><%=vo.getRegDate() %></td>
-			<td><a href="/guestbook2/gb?a=deleteform&no=<%=vo.getNo() %>">삭제</a></td>
+			<td>
+			<a href="/guestbook2/gb?a=deleteform&no=<%=vo.getNo() %>">삭제</a>
+			<!--
+			<form action="/guestbook2/gb" method="post">
+				<input type="hidden" name="a" value="deleteform">
+				<input type="hidden" name="no" value="<%=vo.getNo() %>">
+				<input type="submit" value="삭제">
+			</form>
+			  -->
+			</td>
 		</tr>
 		<tr>
 			<td colspan=4>
