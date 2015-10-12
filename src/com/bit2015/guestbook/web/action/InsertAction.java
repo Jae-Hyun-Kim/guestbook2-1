@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit2015.guestbook.dao.GuestbookDao;
 import com.bit2015.guestbook.vo.GuestbookVo;
+import com.bit2015.web.WebUtil;
 import com.bit2015.web.action.Action;
 
 public class InsertAction implements Action {
@@ -15,6 +16,7 @@ public class InsertAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
+		
 		String name = request.getParameter( "name" );
 		String password = request.getParameter( "pass" );
 		String message = request.getParameter( "content" );
@@ -27,7 +29,7 @@ public class InsertAction implements Action {
 		GuestbookDao dao = new GuestbookDao();
 		dao.insert(vo);
 		
-		response.sendRedirect( "/guestbook2/gb" );
+		WebUtil.redirect( response, "/guestbook2/gb" );
 	}
 
 }

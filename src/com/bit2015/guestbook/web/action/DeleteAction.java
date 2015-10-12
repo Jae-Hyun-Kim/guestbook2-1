@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit2015.guestbook.dao.GuestbookDao;
 import com.bit2015.guestbook.vo.GuestbookVo;
+import com.bit2015.web.WebUtil;
 import com.bit2015.web.action.Action;
 
 public class DeleteAction implements Action {
@@ -24,6 +25,6 @@ public class DeleteAction implements Action {
 		GuestbookDao dao = new GuestbookDao();
 		dao.delete(vo);
 		
-		response.sendRedirect( "/guestbook2/gb" );
+		WebUtil.redirect( response, "/guestbook2/gb" );
 	}
 }
