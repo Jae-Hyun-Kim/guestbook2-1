@@ -41,7 +41,7 @@ public class GuestbookServlet extends HttpServlet {
 			
 			response.sendRedirect( "/guestbook2/gb" );
 			
-		} else if(  "insert".equals( a )  ) {
+		} else if( "insert".equals( a )  ) {
 			String name = request.getParameter( "name" );
 			String password = request.getParameter( "pass" );
 			String message = request.getParameter( "content" );
