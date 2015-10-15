@@ -1,8 +1,9 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
-<%@page import="com.bit2015.guestbook.vo.GuestbookVo"%>
 <%
-	List<GuestbookVo> list = (List<GuestbookVo>)request.getAttribute( "list" );
+	pageContext.setAttribute( "newLine", "\n" );
 %>
 <html>
 <head>
@@ -25,37 +26,31 @@
 		</tr>
 	</table>
 	</form>
-	
-	<%
-		int countTotal = list.size();
-		int index = 0;
-		for( GuestbookVo vo : list ) {
-	%>
-	<br>
-	<table width=510 border=1>
-		<tr>
-			<td>[<%=countTotal-index++ %>]</td>
-			<td><%=vo.getName() %></td>
-			<td><%=vo.getRegDate() %></td>
-			<td>
-			<a href="/guestbook2/gb?a=deleteform&no=<%=vo.getNo() %>">삭제</a>
-			<!--
-			<form action="/guestbook2/gb" method="post">
-				<input type="hidden" name="a" value="deleteform">
-				<input type="hidden" name="no" value="<%=vo.getNo() %>">
-				<input type="submit" value="삭제">
-			</form>
-			  -->
-			</td>
-		</tr>
-		<tr>
-			<td colspan=4>
-			<%=vo.getMessage().replaceAll("\n", "<br>") %>
-			</td>
-		</tr>
-	</table>
-	<%
-		}
-	%>
+	<c:set var='count' value='${fn:length(list) }'></c:set>
+	<c:forEach items='${list }' var='vo' varStatus="status">
+		<br>
+		<table width=510 border=1>
+			<tr>
+				<td>[${count-status.index }]</td>
+				<td>${vo.name }</td>
+				<td>${vo.regDate }</td>
+				<td>
+				<a href="/guestbook2/gb?a=deleteform&no=${vo.no }">삭제</a>
+				<!--
+				<form action="/guestbook2/gb" method="post">
+					<input type="hidden" name="a" value="deleteform">
+					<input type="hidden" name="no" value="${vo.no }">
+					<input type="submit" value="삭제">
+				</form>
+				  -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan=4>
+				${fn:replace(vo.message, newLine, '<br>') }
+				</td>
+			</tr>
+		</table>
+	</c:forEach>
 </body>
 </html>
