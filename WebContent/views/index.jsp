@@ -13,7 +13,7 @@
 <body>
 	<form action="/guestbook2/gb" method="post">
 	<input type="hidden" name="a" value="insert">
-	<table border=1 width=500>
+	<table border=1 width="500">
 		<tr>
 			<td>이름</td><td><input type="text" name="name"></td>
 			<td>비밀번호</td><td><input type="password" name="pass"></td>
