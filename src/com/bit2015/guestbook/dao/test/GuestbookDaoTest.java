@@ -12,7 +12,7 @@ public class GuestbookDaoTest {
 		//insertTest();
 	
 		//delete Test
-		deleteTest();
+		//deleteTest();
 		
 		//getList Test
 		getListTest();
@@ -20,8 +20,7 @@ public class GuestbookDaoTest {
 
 	public static void getListTest() {
 		GuestbookDao dao = new GuestbookDao();
-		List<GuestbookVo> list = dao.getList();
-		
+		List<GuestbookVo> list = dao.getList(2);
 		for( GuestbookVo vo : list ) {
 			System.out.println( vo );
 		}

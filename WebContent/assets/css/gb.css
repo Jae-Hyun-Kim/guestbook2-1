@@ -1,0 +1,8 @@
+*			{ margin:0; padding:0 }
+body 		{ font-size:0.75em; font-family:"맑은 고딕", 굴림, 돋움; color:#333 }
+
+form, table { margin:10px auto }
+table		{ width:510px; border-collapse:collapse }
+table, td	{ border:1px solid #aaa }
+td			{ padding:5px }
+textarea	{ width:100% } 
