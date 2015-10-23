@@ -8,6 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>방명록</title>
 <link rel="stylesheet" type="text/css" href="/guestbook2/assets/css/gb.css">
+<script type="text/javascript" src="/guestbook2/assets/js/jquery/jquery-1.9.0.js"></script>
+<script>
+</script>
 </head>
 <body>
 	<form action="/guestbook2/gb" method="post">
